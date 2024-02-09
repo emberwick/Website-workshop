@@ -1,0 +1,745 @@
+---
+title: "Making an Academic Website"
+author:
+  - name: Elissa Berwick
+    affiliations: McGill University
+    email: elissa.berwick@mcgill.ca
+date: today
+date-format: long
+format: 
+  revealjs:
+    theme: assets/custom.scss
+    # css: assets/style.css
+    slide-number: true
+    incremental: true   
+    show-notes: false
+    highlight-style: dracula
+    self-contained: true
+editor: source
+---
+
+## Agenda
+
+\
+
+1.  Elements of an academic website
+2.  No-coding methods
+3.  `Quarto` for academic websites
+    - Getting started with `Quarto`
+    - Publishing with `GitHub Pages`
+    - Advanced content and customization
+
+# Website elements {.inverse}
+
+## Landing page
+
+Introduce and define yourself
+
+- Provide current position and educational background
+- Identify what field(s) you work in
+
+:::{.fragment}
+::: center-x
+```{=html}
+<iframe width="975" height="350" src="https://jagevans.com/" title="Homepage example"></iframe>
+```
+[<https://jagevans.com/>]{.citation}
+:::
+:::
+
+## Separate "About" page
+
+- A separate "About" page can provide more detail
+
+:::{.fragment}
+::: center-x
+```{=html}
+<iframe width="975" height="475" src="https://jagevans.com/home-2/about-me/" title="About example"></iframe>
+```
+[<https://jagevans.com/>]{.citation}
+:::
+:::
+
+## Single "Home" page
+
+- Or a single "Home" page can have everything
+
+:::{.fragment}
+::: center-x
+```{=html}
+<iframe width="975" height="475" src="https://www.aaronerlich.com/" title="Homepage example 2"></iframe>
+```
+[<https://www.aaronerlich.com/>]{.citation}
+:::
+:::
+
+## Research
+
+Information on publications [AND]{.bold} current projects
+
+- Include summaries or keywords for papers
+- Link to PDFs and/or add replication files
+
+:::{.fragment}
+::: center-x
+```{=html}
+<iframe width="975" height="350" src="https://www.andrewheiss.com/research/" title="Research example"></iframe>
+```
+[<https://www.andrewheiss.com/research/>]{.citation}
+:::
+:::
+
+## Teaching
+
+Describe your teaching experience
+
+- Detail your approach to teaching
+
+:::{.fragment}
+::: center-x
+```{=html}
+<iframe width="975" height="350" src="https://kathleenacreel.com/teaching.html" title="Teaching example"></iframe>
+```
+[<https://kathleenacreel.com/teaching.html>]{.citation}
+:::
+:::
+
+## Teaching
+
+Describe your teaching experience
+
+- Add teaching resources you've developed
+
+:::{.fragment}
+::: center-x
+```{=html}
+<iframe width="975" height="350" src="https://emitanaka.org/teaching/" title="Teaching example"></iframe>
+```
+[<https://emitanaka.org/teaching/>]{.citation}
+:::
+:::
+
+## Extras
+
+Make it interesting!
+
+- Share projects
+
+:::{.fragment}
+::: center-x
+```{=html}
+<iframe width="975" height="400" src="https://ddimmery.com/software" title="Extras example"></iframe>
+```
+[<https://ddimmery.com/software>]{.citation}
+:::
+:::
+
+## Extras
+
+Make it interesting!
+
+- Share a blog
+
+:::{.fragment}
+::: center-x
+```{=html}
+<iframe width="975" height="400" src="https://beamilz.com/posts/" title="Extras example"></iframe>
+```
+[<https://beamilz.com/posts/>]{.citation}
+:::
+:::
+
+## Extras
+
+Make it interesting!
+
+- Add photos and hobbies
+
+:::{.fragment}
+::: center-x
+```{=html}
+<iframe width="975" height="400" src="https://www.tesaliarizzo.com/pic" title="Extras example"></iframe>
+```
+[<https://www.tesaliarizzo.com/pic>]{.citation}
+:::
+:::
+
+# No-coding methods {.inverse}
+
+## Pre-made templates
+
+- Powerpoint-like experience
+- Designed by professionals
+
+:::{.fragment}
+::: center-x
+```{=html}
+<iframe width="975" height="400" src="https://www.squarespace.com/templates" title="Squarespace"></iframe>
+```
+[<https://www.squarespace.com/templates>]{.citation}
+:::
+:::
+
+## Template providers
+
+- Pricing (CAD) for basic plan that includes domain name (i.e. `yourname.com`)
+
+  - WordPress: from \$5/month
+  - Weebly: from \$7/month
+  - GoDaddy: from $12/month
+  - Wix: from $15/month
+  - Squarespace: \$21/month
+
+- Design quality and inclusions are proportional to price!
+- WordPress and Weebly have free options without custom domain
+- `GitHub` is free with domain name `username.github.io`... <br> ... but requires coding
+
+## Custom domain names
+
+- You can purchase a domain name directly from the last slide's website template providers
+
+- OR you can purchase a domain separately from a [domain registrar]{.bold}
+
+  - Keeps your ownership of the domain independent of your current template
+
+- Options include:
+
+  - GoDaddy (largest)
+  - Domain.com
+  - Google Domains (easiest)
+  - Cloudflare
+
+# Getting started with Quarto {.inverse}
+
+## Why use `Quarto`?
+
+- Three building blocks of a website:
+
+  - Basic structure built with `html`
+  - Styling done with `css`
+  - Dynamic content from `JavaScript` [(not needed for a static site)]{.fragment}
+
+- [Static site generators]{.bold}: convert easy-to-write `Markdown` to `html` for use in a static website
+
+  - Examples: `Jekyll`, `Hugo`, `Gatsby`
+  
+- There are other `R` packages like `distill` and `blogdown` that let you do this too
+
+  - `Quarto` is a new `Markdown` based way to generate static webite content
+
+## What is `Quarto`?
+
+- `RMarkdown` beyond `R` (support for `Python`, `Julia`, `Observable`)
+- Output types (via `pandoc`):
+  - PDF (via LaTeX)
+  - MS Word
+  - Revealjs
+  - PowerPoint
+  - Beamer
+  - Markdown
+  - [HTML]{.alert}
+
+:::{.aside}  
+More information: <https://www.apreshill.com/blog/2022-04-we-dont-talk-about-quarto/>
+:::
+
+## Project setup
+
+Create a new project in RStudio
+
+- Select "new project" from upper right corner of GUI
+
+- Select "new directory"
+
+- Select "Quarto website"
+
+- Give the directory a name
+
+  - This will be the name of the `GitHub` repository as well
+  - If you plan on hosting the page on `GitHub`, make sure you name the project/repository `username.github.io`
+
+- Pick somewhere to save the entire project
+
+:::{.aside}
+More detailed directions: <https://quarto.org/docs/websites/>
+:::
+
+## What's in the project?
+
+You will now have a folder with several (mostly blank) files:
+
+- `_quarto.yml`: config file with common `yaml` information for *all* the pages in your site
+
+  - Includes title, navbar contents, theme
+
+- `styles.css`: where you can put design settings written in `css`
+
+  - `css` ("cascading style sheets") are the main styling system for the entire internet
+  - Holds custom design elements like colors and fonts
+  - Note: you'll probably want to use `scss` (Sass) for customization instead!
+
+## What's in the project?
+
+You will now have a folder with several (mostly blank) files:
+  
+- `index.qmd`: your site's landing page
+
+  - This is where you'll put content to display when someone first arrives on your site
+  - Don't change the name!
+  
+- `about.qmd`: an initial page on your site
+
+  - You can copy and rename this demo page as needed
+
+## Editing `yaml` 
+
+:::{.nonincremental}
+- Change the site title to your name
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|5|7,16"
+
+project:
+  type: website
+
+website:
+  title: "My Name"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+```
+
+- You can also move the navbar to the right or turn off the table of contents
+
+## Rendering
+
+You already have the basics for a site!
+
+- Click `Build > Render Website` to convert all of your quarto files into `html` output in the `docs` folder
+
+  - Button is in the pane with Environment, History, Git, etc.
+
+- A preview version should open up in RStudio
+
+  - The site isn't live yet, this is just a local preview version!
+  - To make it live we will deploy via `GitHub Pages` (to be continued...)
+  - You can also use another service like Netlify
+
+## Themes: options
+
+- You can change the appearance of your site to one of the pre-made "Bootswatch" themes (`css` someone else already wrote)
+
+  - A random selection: 
+    - `cosmo`
+    - `lux`
+    - `minty`
+    - `slate`
+    - `yeti`
+    - `zephyr`
+
+:::{.aside}
+All available themes: <https://bootswatch.com/>
+:::
+
+## Themes: trying it out
+
+:::{.nonincremental}
+- Try setting `theme: zephyr` or another theme of your choice
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|14"
+
+project:
+  type: website
+
+website:
+  title: "My Name"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+    toc: true
+```
+
+- Render site to preview
+
+## Page content: `Markdown`
+
+- You can use `Markdown` syntax to edit your landing page
+
+- For example:
+
+  - Use `#` for top-level headers, `##` for second-level headers etc.
+  - Bullet points with `-`
+  - Numbered lists with `1.` etc
+  - Links: `[text](https://link.com)`
+  - Images: `![Caption](project_directory/folder/image)`[^1]
+
+[^1]: Make sure any files are in the same directory as the project
+
+:::{.aside}
+Markdown basics: <https://quarto.org/docs/authoring/markdown-basics.html>
+:::
+
+## Page content: `Markdown`
+
+:::{.nonincremental}
+- Try adding an introduction in `Markdown` to your site and rendering it
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-overflow: wrap
+
+## Lorem Ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+- Sed at nulla lobortis, faucibus nisi et, tempor dui. 
+- Fusce quis nulla sodales, ultricies arcu vitae, bibendum est. 
+
+Donec neque justo, vulputate vel velit ut, pulvinar suscipit nibh.
+
+1. Nullam risus erat, consectetur quis libero in, condimentum accumsan quam.
+
+Maecenas egestas pulvinar lobortis.
+```
+
+## Page content: "About" pages
+
+- For easier layout options, make pages into "About" pages
+
+-  To do this, you will add an `about` option to the `yaml` of the page you want to change (not `_yaml.qmd`!)
+
+- You will need to pick one of 5 templates for your About page:
+  
+    - `jolla`
+    - `trestles`
+    - `solana`
+    - `marquee`
+    - `broadside`
+
+:::{.aside}
+More information: <https://quarto.org/docs/websites/website-about.html>
+:::
+
+## About pages: trying it out
+
+:::{.nonincremental}
+- Try making `index.qmd` an "About" page using `template: jolla`
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|3|3,4"
+---
+title: "Finley Malloc"
+about:
+  template: jolla
+  image: profile.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com
+    - icon: file-pdf
+      text: CV
+      href: my_cv.pdf  
+---
+```
+
+## About pages: trying it out
+
+:::{.nonincremental}
+- Add a picture of yourself using `image: profile.jpg`
+- You can also add links to social media, `GitHub` or files like your CV[^2]
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|3,5|3,10-12"
+---
+title: "Finley Malloc"
+about:
+  template: jolla
+  image: profile.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com
+    - icon: file-pdf
+      text: CV
+      href: my_cv.pdf  
+---
+```
+
+:::{.aside}
+Make sure any files (or their parent directories) are in the same directory as your project!
+:::
+
+[^2]: Available icons: [https://icons.getbootstrap.com/](https://icons.getbootstrap.com/)
+
+## Make a new page
+
+- You can make new pages by creating new `.qmd` files in the project directory
+
+- Try making a new quarto file called `research.qmd`[^3]
+
+- You can add content using `Markdown` as before
+
+  - [Tip]{.bold}: you can also format *any* page (or part of a page) using one of the "About" templates
+
+[^3]: Or just rename the blank file `about.qmd`, it's not the same as your "About" page
+
+## Add it to the site
+
+:::{.nonincremental}
+- Add your new page to the site by linking it to the navbar in the `_quarto.yaml` file
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|12"
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "My Name"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - research.qmd  
+
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+    toc: true
+```
+
+# Publishing with GitHub Pages {.inverse}
+
+## Project setup
+
+In your RStudio project:
+
+:::{.nonincremental}
+- Open the file `_quarto.yml` and set `output-dir: docs`
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "|3"
+
+project:
+  type: website
+  output-dir: docs
+  
+website:
+  title: "My Name"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - research.qmd  
+
+```
+  
+  - Add an empty text file to the project directory and name it `.nojekyll`
+
+  - Render site using `Build > Render Website`
+
+## `GitHub` setup (manual)
+
+- Create a repository in your `GitHub` account that has the [same]{.bold} name as your RStudio project
+
+- From within the new repository, select `Add file > Upload files` and upload the entire *contents* of the project directory
+
+- Every time you want to edit your site you will need to:
+
+  1. `Build > Render Website`
+  2. Upload [all]{.bold} new files to `GitHub`
+
+## `git` and RStudio
+
+- Haven't used `git` directly from RStudio before? 
+
+  - You will need to generate a PAT using `usethis::create_github_token()`
+  - Store it in RStudio using `gitcreds::gitcreds_set()`
+
+## `GitHub` setup (`usethis`)
+
+- Set up your project for git tracking by running `usethis::use_git()`
+
+- Create a corresponding repository on `GitHub` by running `usethis::use_github()`
+
+- Every time you want to edit your site you will need to:
+  
+  1. `Build > Render Website`
+  2. Stage files by checking names in `Git` tab
+  3. Commit files by clicking `Commit` and adding a message
+  4. Push to the repository by clicking `Push`
+
+## `GitHub Pages` setup
+
+In the repository page on `github.com`:
+
+- Go to the "Settings" tab in the top menu bar
+
+- Then select "Pages" from the left menu bar
+
+- Set branch to `main` or `master`[^4] and selected folder to `/docs` and save  
+  
+- The url will change when the page is fully deployed
+  
+- Go to the "Actions" tab in the top menu bar to see the deployment status  
+
+[^4]: Depending on your setup the main branch will either be called `main` or `master`; you can find out which one you're on by typing `git branch` in the Terminal
+
+# Advanced content and customization {.inverse}
+
+## Page content: `pandoc`
+
+:::{.nonincremental}
+- `Markdown` is supposed to be easy to read
+- For more complex formats, you can use `pandoc` syntax
+- Try adding columns using a `.columns` div
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-overflow: wrap
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+::: {.columns}
+::: {.column width="50%"}
+Sed at nulla lobortis, faucibus nisi et, tempor dui. 
+:::
+
+::: {.column width="50%"}
+Fusce quis nulla sodales, ultricies arcu vitae, bibendum est.
+:::
+:::
+
+```
+
+## Custom styles
+
+- Want to customize colors, fonts, and more? Use Sass!
+
+  - [Tip]{.bold}: Add customization on top of an existing theme by using multiple theme arguments
+    - ex: `theme: [journal, styles.scss]` 
+  
+- How:  
+
+  - Make a new file ending in `.scss` and add it to the theme setting in your `_yaml.qmd` file
+  - Make two sections in your new file: 
+    - `/*-- scss:defaults --*/`
+    - `/*-- scss:rules --*/`
+
+## Defaults
+
+:::{.nonincremental}
+- Define variables like colors and fonts in `scss:defaults`
+:::
+
+```{scss}
+#| eval: false
+#| echo: true
+/*-- scss:defaults --*/
+
+// import a font from google
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+// set fonts for text
+$font-family-sans-serif: "Merriweather", Palatino, FreeSerif, serif !default;
+
+// document colors
+$body-bg: #181818;
+$body-color: white;
+$link-color: #75AADB;
+
+// code blocks
+$code-block-bg-alpha: -.8;
+```
+
+:::{.aside}
+More on variables you can set: <https://quarto.org/docs/output-formats/html-themes.html>
+:::
+
+## Rules
+
+:::{.nonincremental}
+- Use `scss:rules` to define additional `css` styles
+:::
+
+```{scss}
+#| eval: false
+#| echo: true
+/*-- scss:rules --*/
+
+// highlight a word
+.highlight {
+  color: #D33582;
+  font-weight: bold;
+}
+ 
+```
+
+- To use this style, you would type: <br> `[highlighted phrase]{.highlight}`
+
+- Which would produce: [highlighted phrase]{.alert}
+
+:::{.aside}
+More on using Scss customizations: <https://quarto.org/docs/output-formats/html-themes-more.html>
+:::
+
+## Resouces
+
+:::{.nonincremental}
+- Guides to website setup:
+  
+  - [https://quarto.org/docs/websites](https://quarto.org/docs/websites)
+  - [https://ucsb-meds.github.io/creating-quarto-websites](https://ucsb-meds.github.io/creating-quarto-websites)
+  - [https://ddimmery.com/posts/quarto-website](https://ddimmery.com/posts/quarto-website)
+  - [https://www.marvinschmitt.com/blog/website-tutorial-quarto](https://www.marvinschmitt.com/blog/website-tutorial-quarto)
+
+- Inspiration:
+
+  - [https://github.com/mcanouil/awesome-quarto](https://github.com/mcanouil/awesome-quarto)
+
+- Use a custom domain name with `GitHub Pages`:
+
+  - [https://hossainkhan.medium.com/using-custom-domain-for-github-pages-86b303d3918a](https://hossainkhan.medium.com/using-custom-domain-for-github-pages-86b303d3918a)
+
+:::

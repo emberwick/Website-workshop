@@ -1,0 +1,413 @@
+/*-- scss:defaults --*/
+
+// importing fonts
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Fira+Code&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Commissioner&family=Petrona&family=Inconsolata&display=swap');
+
+
+// setting fonts
+$presentation-heading-font: 'Petrona',  Georgia, serif  !default;
+$font-family-sans-serif: 'Commissioner', roboto, sans-serif !default;
+$font-weight: 350;
+
+// custom colours
+$primary: #193C54;
+$accent: #3967B2;
+$alert: #D33582;
+$gray-700: #495057 !default;
+$off-white: #F7F7F7; 
+$bridal-heath: #FFFBF2;
+$thunder: #222222;
+
+// heading color & size
+$presentation-heading-color: $primary;
+$h1-font-size: 1.6em !default;
+$h2-font-size: 1.3em !default;
+$h3-font-size: 1.15em !default;
+
+// text color & size
+$body-bg: $bridal-heath;
+$body-color: $thunder;
+$link-color: $accent;
+$presentation-font-size-root: 34px;
+//$presentation-heading-line-height: 1.3;
+//$presentation-block-margin: 14px;
+
+//code color & size
+$font-family-monospace: 'Inconsolata', monospace  !default;
+$code-bg: $body-bg;  //in-line code
+$code-color: $accent !default; //in-line code
+$code-block-font-size: 0.6em;
+$code-block-bg: $primary;
+//$code-block-bg: lighten($body-bg, 10%);
+
+/*-- scss:rules --*/
+
+/********** 
+Text Styling
+***********/
+
+// align
+.center-x {
+	text-align: center;
+}
+
+// color
+.alert {
+  color: $alert;
+}
+
+.citation{
+  color: $text-muted;
+  font-size: 70%;
+}
+
+.bold{
+  color: $accent;
+  font-weight: 700;
+}
+
+// size
+.small-font {
+	font-size: 80%;
+}
+
+.large-font {
+	font-size: 130%;
+}
+
+.fg {
+  color: var(--col, $primary);
+}
+
+.bg {
+  background-color: var(--col, $body-bg);
+  padding: 0.1em;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.tab { 
+  display: inline-block; 
+  margin-left: 40px; 
+}
+
+/********** 
+Slide Styling
+***********/
+
+.reveal .slide-number {
+  color: $primary;
+}
+
+.reveal .progress {
+	color: $primary;
+}
+
+.reveal .footer {
+  font-size: 0.35em !important;
+  text-align: right !important;
+}
+
+/*.reveal 
+/*  h2 {
+/*    font-variant: small-caps;
+  } */
+  
+/********** 
+Transitions
+***********/
+
+.reveal .slides section .fragment.semi-fade-out {
+	opacity: 1;
+	visibility: inherit;
+
+	&.visible {
+		opacity: 0.25;
+		visibility: inherit;
+	}
+}
+
+.reveal .slides section .fragment.fade {
+	opacity: 0.25;
+	visibility: inherit;
+}
+
+.reveal .slides section .fragment.fade-in {
+	opacity: 0.25;
+	visibility: inherit;
+
+	&.visible {
+		opacity: 1;
+		visibility: inherit;
+	}
+}
+
+
+.reveal .slides section .fragment.highlight-alert {
+	opacity: 1;
+	visibility: inherit;
+
+	&.visible {
+		color: $alert;
+		visibility: inherit;
+	}
+}
+
+.reveal .slides section .fragment.highlight-bold {
+	opacity: 1;
+	visibility: inherit;
+
+	&.visible {
+		color: $accent;
+		visibility: inherit;
+	}
+}
+
+/********** 
+Special slides
+***********/
+
+// style title slide
+#title-slide {
+  text-align: left;
+
+  .title {
+    color: $primary;
+    // font-size: 1.8em;
+    // font-weight: 350;
+    // font-weight: lighter;
+  }
+
+  .subtitle {
+    color: $primary;
+    font-size: 1.3em;
+    // font-style: italic;
+    // font-variant: small-caps;
+    font-weight: 400;
+    margin-top: 0em;
+  }
+  
+  .subtitle:after {
+	  content: "";
+	  display: block;
+	  border: none;
+	  background-color: $primary;
+	  color: $primary;
+	  height: 2px;
+	  margin: 25px 0 25px;
+  }
+
+  .institute,
+  .quarto-title-affiliation,
+  .quarto-title-author-email {
+    font-style: italic;
+    font-size: 80%;
+    color: $accent;
+  }
+
+  .author,
+  .quarto-title-author-name {
+    color: $accent;
+  }
+
+  .quarto-title-authors {
+    display: flex;
+    justify-content: left;
+
+    .quarto-title-author {
+      padding-left: 0em;
+      padding-right: 0em;
+      padding-top: 1em;
+      width: 100%;
+    }
+  }
+
+ .date {
+  	color: $gray-700;
+  	text-shadow: none;
+  	font-weight: 300;
+  	font-size: 30px;
+  	text-align: left;
+  	// margin-left: 15px;
+  	// margin-bottom: -30px;
+  }
+  
+}
+
+// make inverse class
+.inverse {
+  color: $primary;
+  h1, h2, h3 {
+    color: $body-bg;
+  }
+
+  a {
+    color: $body-bg;
+  }
+
+  p code {
+    color:  $body-bg;
+  }
+
+  .slide-background-content {
+    background-color: $primary;
+  }
+
+    .callout-caption {
+    color:  $body-bg;
+  }
+
+  pre {
+    background-color:  $body-bg;
+  }
+
+  pre code {
+    background-color: #272822;
+    color: #d6d6d6;
+  }
+
+  pre.sourceCode code {
+      background-color: #2b2b2b;
+      padding: 6px 9px;
+      max-height: 500px;
+      white-space: pre
+  }
+
+  pre > code.sourceCode > span {
+    color: #f8f8f2;
+  }
+
+  code span {
+    color: #f8f8f2;
+  }
+
+  code.sourceCode > span {
+    color: #f8f8f2;
+  }
+
+  div.sourceCode,
+  div.sourceCode pre.sourceCode {
+    color: #f8f8f2;
+  }
+
+  code span.ot {
+    color: #ffa07a;
+  }
+
+  code span.at {
+    color: #ffd700;
+  }
+
+  code span.ss {
+    color: #abe338;
+  }
+
+  code span.an {
+    color: #d4d0ab;
+  }
+
+  code span.fu {
+    color: #ffd700;
+  }
+
+  code span.st {
+    color: #abe338;
+  }
+
+  code span.cf {
+    color: #ffa07a;
+  }
+
+  code span.op {
+    color: #00e0e0;
+  }
+
+  code span.er {
+    color: #dcc6e0;
+  }
+
+  code span.bn {
+    color: #dcc6e0;
+  }
+
+  code span.al {
+    color: #dcc6e0;
+  }
+
+  code span.va {
+    color: #f5ab35;
+  }
+
+  code span.bu {
+    color: #f5ab35;
+  }
+
+  code span.ex {
+    color: #ffd700;
+  }
+
+  code span.pp {
+    color: #dcc6e0;
+  }
+
+  code span.in {
+    color: #d4d0ab;
+  }
+
+  code span.vs {
+    color: #abe338;
+  }
+
+  code span.wa {
+    color: #d4d0ab;
+    font-style: italic;
+  }
+
+  code span.do {
+    color: #d4d0ab;
+    font-style: italic;
+  }
+
+  code span.im {
+    color: #f8f8f2;
+  }
+
+  code span.ch {
+    color: #abe338;
+  }
+
+  code span.dt {
+    color: #dcc6e0;
+  }
+
+  code span.fl {
+    color: #f5ab35;
+  }
+
+  code span.co {
+    color: #d4d0ab;
+  }
+
+  code span.cv {
+    color: #d4d0ab;
+    font-style: italic;
+  }
+
+  code span.cn {
+    color: #ffa07a;
+  }
+
+  code span.sc {
+    color: #00e0e0;
+  }
+
+  code span.dv {
+    color: #dcc6e0;
+  }
+
+  code span.kw {
+    color: #ffa07a;
+  }
+}
