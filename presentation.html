@@ -962,24 +962,28 @@ Elissa Berwick
 <li class="fragment"><p>Render site using <code>Build &gt; Render Website</code></p></li>
 </ul>
 </section>
-<section id="github-setup-manual" class="slide level2">
-<h2><code>GitHub</code> setup (manual)</h2>
+<section id="github-setup-no-git" class="slide level2">
+<h2><code>GitHub</code> setup (no <code>git</code>)</h2>
 <ul>
-<li class="fragment"><p>Create a repository in your <code>GitHub</code> account that has the <span class="bold">same</span> name as your RStudio project</p></li>
-<li class="fragment"><p>From within the new repository, select <code>Add file &gt; Upload files</code> and upload the entire <em>contents</em> of the project directory</p></li>
+<li class="fragment"><p>Create a repository in your <code>GitHub</code> account</p></li>
+<li class="fragment"><p>From within the new repository, select <code>Upload files</code></p></li>
+<li class="fragment"><p>Upload the entire <em>contents</em> of the project directory</p></li>
 <li class="fragment"><p>Every time you want to edit your site you will need to:</p>
 <ol type="1">
 <li class="fragment"><code>Build &gt; Render Website</code></li>
-<li class="fragment">Upload <span class="bold">all</span> new files to <code>GitHub</code></li>
+<li class="fragment">Upload <span class="bold">all</span> new/edited files to <code>GitHub</code></li>
 </ol></li>
 </ul>
 </section>
 <section id="git-and-rstudio" class="slide level2">
 <h2><code>git</code> and RStudio</h2>
 <ul>
-<li class="fragment"><p>Haven’t used <code>git</code> directly from RStudio before?</p>
+<li class="fragment"><p>Haven’t used <code>git</code> directly from RStudio before?</p></li>
+<li class="fragment"><p>Install packages <code>usethis</code> and <code>gitcreds</code></p></li>
+<li class="fragment"><p>Then:</p>
 <ul>
-<li class="fragment">You will need to generate a PAT using <code>usethis::create_github_token()</code></li>
+<li class="fragment">Generate a PAT using <code>usethis::create_github_token()</code></li>
+<li class="fragment">Save it!</li>
 <li class="fragment">Store it in RStudio using <code>gitcreds::gitcreds_set()</code></li>
 </ul></li>
 </ul>

@@ -577,22 +577,29 @@ website:
 
   - Render site using `Build > Render Website`
 
-## `GitHub` setup (manual)
+## `GitHub` setup (no `git`)
 
-- Create a repository in your `GitHub` account that has the [same]{.bold} name as your RStudio project
+- Create a repository in your `GitHub` account
 
-- From within the new repository, select `Add file > Upload files` and upload the entire *contents* of the project directory
+- From within the new repository, select `Upload files`
+
+- Upload the entire *contents* of the project directory
 
 - Every time you want to edit your site you will need to:
 
   1. `Build > Render Website`
-  2. Upload [all]{.bold} new files to `GitHub`
+  2. Upload [all]{.bold} new/edited files to `GitHub`
 
 ## `git` and RStudio
 
 - Haven't used `git` directly from RStudio before? 
 
-  - You will need to generate a PAT using `usethis::create_github_token()`
+- Install packages `usethis` and `gitcreds`
+
+- Then:
+
+  - Generate a PAT using `usethis::create_github_token()`
+  - Save it!
   - Store it in RStudio using `gitcreds::gitcreds_set()`
 
 ## `GitHub` setup (`usethis`)
